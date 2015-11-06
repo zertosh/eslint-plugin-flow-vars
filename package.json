@@ -1,0 +1,29 @@
+{
+  "name": "eslint-plugin-flow-vars",
+  "version": "0.0.0",
+  "description": "Solves the problem of false positives with `no-undef` and `no-unused-vars` when using babel-eslint",
+  "keywords": [
+    "eslint",
+    "eslint-plugin",
+    "eslintplugin",
+    "flow",
+    "flow-type",
+    "flowtype"
+  ],
+  "license": "MIT",
+  "author": "Andres Suarez <zertosh@gmail.com>",
+  "files": [
+    "index.js",
+    "define-flow-type.js",
+    "use-flow-type.js"
+  ],
+  "repository": "zertosh/eslint-plugin-flow-vars",
+  "scripts": {
+    "test": "node test/test.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "babel-eslint": "^4.1.4",
+    "eslint": "^1.8.0"
+  }
+}
