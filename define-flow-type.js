@@ -40,8 +40,4 @@ module.exports = function(context) {
   };
 };
 
-module.exports.schema = [{
-  type: 'object',
-  properties: {},
-  additionalProperties: false
-}];
+module.exports.schema = [];
