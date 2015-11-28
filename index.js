@@ -6,7 +6,7 @@ module.exports = {
     'use-flow-type': require('./use-flow-type')
   },
   rulesConfig: {
-    'define-flow-type': 1,
-    'use-flow-type': 1
+    'define-flow-type': 0,
+    'use-flow-type': 0
   }
 };
