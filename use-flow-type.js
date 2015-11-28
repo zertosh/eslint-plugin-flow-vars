@@ -8,13 +8,7 @@ module.exports = function(context) {
     DeclareClass: markTypeAsUsed,
     DeclareModule: markTypeAsUsed,
     DeclareFunction: markTypeAsUsed,
-    DeclareVariable: markTypeAsUsed,
-    TypeAlias: markTypeAsUsed,
-    TypeParameterDeclaration: function(node) {
-      for (var i = 0; i < node.params.length; i++) {
-        context.markVariableAsUsed(node.params[i].name);
-      }
-    }
+    DeclareVariable: markTypeAsUsed
   };
 };
 
