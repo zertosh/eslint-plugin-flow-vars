@@ -28,6 +28,18 @@ var NOW_VALID = [
   {
     code: 'declare var A: Y',
     errors: [A_NOT_USED]
+  },
+  {
+    code: 'import type A from "a"; (function<T: A>(): T {})',
+    errors: [A_NOT_USED]
+  },
+  {
+    code: 'import type {A} from "a"; (function<T: A>(): T {})',
+    errors: [A_NOT_USED]
+  },
+  {
+    code: 'import type {a as A} from "a"; (function<T: A>(): T {})',
+    errors: [A_NOT_USED]
   }
 ];
 
@@ -39,6 +51,10 @@ var ALWAYS_INVALID = [
   {
     code: 'function x<A>() {}; x()',
     errors: [A_NOT_USED]
+  },
+  {
+    code: 'import type A from "a";',
+    errors: [A_NOT_USED]
   }
 ];
 
@@ -46,7 +62,8 @@ var ALWAYS_VALID = [
   'type A = Y; var x: A; x()',
   'type A = Y; function x(a: A) { a() }; x()',
   'type A = Y; (x: A)',
-  'function x<A>(): A {}; x()'
+  'function x<A>(): A {}; x()',
+  'import type A from "a"; (function(): A {})'
 ];
 
 new RuleTester({
