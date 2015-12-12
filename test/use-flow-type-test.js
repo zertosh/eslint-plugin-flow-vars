@@ -40,6 +40,10 @@ var NOW_VALID = [
   {
     code: 'import type {a as A} from "a"; (function<T: A>(): T {})',
     errors: [A_NOT_USED]
+  },
+  {
+    code: 'type A = {}; function x<Y: A>(i: Y) { i }; x()',
+    errors: [A_NOT_USED]
   }
 ];
 
