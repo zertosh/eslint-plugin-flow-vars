@@ -28,7 +28,9 @@ module.exports = function(context) {
       if (node.id.type === 'Identifier') {
         makeDefined(node.id);
       } else if (node.id.type === 'QualifiedTypeIdentifier') {
-        makeDefined(node.id.qualification);
+        var qid = node.id;
+        do { qid = qid.qualification; } while (qid.qualification);
+        makeDefined(qid);
       }
     },
     ClassImplements: function(node) {
