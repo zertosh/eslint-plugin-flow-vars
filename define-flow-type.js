@@ -9,7 +9,7 @@ module.exports = function(context) {
       globalScope.__define(ident);
 
       globalScope.through = globalScope.through.filter(function(reference) {
-        return reference.identifier !== ident;
+        return reference.identifier.name !== ident.name;
       });
       var variable = globalScope.set.get(ident.name);
       variable.writeable = false;
