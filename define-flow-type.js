@@ -7,6 +7,10 @@ module.exports = function(context) {
   function makeDefined(ident) {
     if (unresolvedRefs[ident.name]) {
       globalScope.__define(ident);
+
+      globalScope.through = globalScope.through.filter(function(reference) {
+        return reference.identifier !== ident;
+      });
       var variable = globalScope.set.get(ident.name);
       variable.writeable = false;
       unresolvedRefs[ident.name] = null;
