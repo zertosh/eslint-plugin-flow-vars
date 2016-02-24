@@ -56,7 +56,7 @@ rules:
   no-new-require: 1
   no-shadow: 1
   no-trailing-spaces: 1
-  quotes: [1, single]
+  quotes: [1, single, avoid-escape]
   semi-spacing: [1, {before: false, after: true}]
   semi: 1
   space-infix-ops: 1

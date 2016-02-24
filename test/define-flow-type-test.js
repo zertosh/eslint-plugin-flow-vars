@@ -6,9 +6,9 @@ var noUndefRule = require('eslint/lib/rules/no-undef');
 var RuleTester = require('eslint').RuleTester;
 RuleTester.prototype.defineRule('define-flow-type', rule);
 
-var ATYPE_NOT_DEFINED = '"AType" is not defined.';
-var BTYPE_NOT_DEFINED = '"BType" is not defined.';
-var B_NOT_DEFINED = '"b" is not defined.';
+var ATYPE_NOT_DEFINED = "'AType' is not defined.";
+var BTYPE_NOT_DEFINED = "'BType' is not defined.";
+var B_NOT_DEFINED = "'b' is not defined.";
 
 var NOW_VALID = [
   {

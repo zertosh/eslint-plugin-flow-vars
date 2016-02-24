@@ -6,7 +6,7 @@ var noUnusedVarsRule = require('eslint/lib/rules/no-unused-vars');
 var RuleTester = require('eslint').RuleTester;
 RuleTester.prototype.defineRule('use-flow-type', rule);
 
-var A_NOT_USED = '"A" is defined but never used';
+var A_NOT_USED = "'A' is defined but never used";
 
 var NOW_VALID = [
   {
