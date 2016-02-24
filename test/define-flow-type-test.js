@@ -16,6 +16,10 @@ var NOW_VALID = [
     errors: [ATYPE_NOT_DEFINED]
   },
   {
+    code: 'var a: AType; var b: AType',
+    errors: [ATYPE_NOT_DEFINED, ATYPE_NOT_DEFINED]
+  },
+  {
     code: 'var a; (a: AType)',
     errors: [ATYPE_NOT_DEFINED]
   },
@@ -38,6 +42,10 @@ var NOW_VALID = [
   {
     code: 'function f(a: AType.a.b) {}',
     errors: [ATYPE_NOT_DEFINED]
+  },
+  {
+    code: 'function f(a): AType {}; var a: AType',
+    errors: [ATYPE_NOT_DEFINED, ATYPE_NOT_DEFINED]
   },
   {
     code: 'function f(a): AType {}',
