@@ -1,32 +1,31 @@
 'use strict';
 
 module.exports = function(context) {
-  var unresolvedRefs = Object.create(null);
   var globalScope;
 
+  // do nearly the same thing that eslint does for config globals
+  // https://github.com/eslint/eslint/blob/v2.0.0/lib/eslint.js#L118-L194
   function makeDefined(ident) {
-    if (unresolvedRefs[ident.name]) {
-      globalScope.__define(ident);
-
-      globalScope.through = globalScope.through.filter(function(reference) {
-        return reference.identifier.name !== ident.name;
-      });
-      var variable = globalScope.set.get(ident.name);
-      variable.writeable = false;
-      unresolvedRefs[ident.name] = null;
+    for (var i = 0; i < globalScope.through.length; i++) {
+      var ref = globalScope.through[i];
+      if (ref.identifier.name === ident.name) {
+        // use "__define" since we don't have a reference to "escope.Variable"
+        globalScope.__define(ident);
+        var variable = globalScope.set.get(ident.name);
+        variable.writeable = false;
+        // "through" contains all references whose definition cannot be found
+        // so we need to update references and remove the ones that were added
+        globalScope.through.splice(i, 1);
+        ref.resolved = variable;
+        variable.references.push(ref);
+        break;
+      }
     }
   }
 
   return {
     Program: function(node) {
       globalScope = context.getScope();
-      for (var i = 0; i < globalScope.through.length; i++) {
-        var ref = globalScope.through[i];
-        var name = ref.identifier.name;
-        if (!unresolvedRefs[name]) {
-          unresolvedRefs[name] = ref;
-        }
-      }
     },
     GenericTypeAnnotation: function(node) {
       if (node.id.type === 'Identifier') {
