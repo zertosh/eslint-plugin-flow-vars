@@ -115,6 +115,21 @@ new RuleTester({
   invalid: ALWAYS_INVALID
 });
 
+// test define-flow-type compatibility with no-use-before-define
+new RuleTester({
+  parser: 'babel-eslint',
+  rules: {
+    'define-flow-type': 1,
+    'no-use-before-define': [2, 'nofunc']
+  }
+}).run('no-undef', noUndefRule, {
+  valid: [].concat(
+    ALWAYS_VALID,
+    NOW_VALID.map(function(item) { return item.code; })
+  ),
+  invalid: ALWAYS_INVALID
+});
+
 new RuleTester({
   parser: 'babel-eslint'
 }).run('no-undef', noUndefRule, {

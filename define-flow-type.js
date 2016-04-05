@@ -9,8 +9,12 @@ module.exports = function(context) {
     for (var i = 0; i < globalScope.through.length; i++) {
       var ref = globalScope.through[i];
       if (ref.identifier === ident) {
-        // use "__define" since we don't have a reference to "escope.Variable"
-        globalScope.__define(ident);
+        // use "__defineGeneric" since we don't have a reference to "escope.Variable"
+        globalScope.__defineGeneric(
+          ident.name,
+          globalScope.set,
+          globalScope.variables
+        );
         var variable = globalScope.set.get(ident.name);
         variable.writeable = false;
         // "through" contains all references whose definition cannot be found
