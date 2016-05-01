@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-flow-vars",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Solves the problem of false positives with `no-undef` and `no-unused-vars` when using babel-eslint",
   "keywords": [
     "eslint",
