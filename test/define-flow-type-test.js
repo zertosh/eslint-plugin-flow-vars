@@ -70,6 +70,12 @@ var NOW_VALID = [
   {
     code: 'interface AType {}',
     errors: [ATYPE_NOT_DEFINED]
+  },
+  {
+    code: '({ a: ({b() {}}: AType) })',
+    // "AType" appears twice in "globalScope.through" as distinct references,
+    // this may be a babel-eslint bug
+    errors: [ATYPE_NOT_DEFINED, ATYPE_NOT_DEFINED]
   }
 ];
 
