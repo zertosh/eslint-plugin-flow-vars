@@ -76,6 +76,14 @@ var NOW_VALID = [
     // "AType" appears twice in "globalScope.through" as distinct references,
     // this may be a babel-eslint bug
     errors: [ATYPE_NOT_DEFINED, ATYPE_NOT_DEFINED]
+  },
+  {
+    code: 'type X = {Y<AType>(): BType}',
+    errors: [ATYPE_NOT_DEFINED, BTYPE_NOT_DEFINED]
+  },
+  {
+    code: 'interface AType<BType> {}',
+    errors: [ATYPE_NOT_DEFINED, BTYPE_NOT_DEFINED]
   }
 ];
 

@@ -41,6 +41,11 @@ module.exports = function(context) {
         makeDefined(qid);
       }
     },
+    TypeParameterDeclaration: function(node) {
+      for (var i = 0; i < node.params.length; i++) {
+        makeDefined(node.params[i]);
+      }
+    },
     ClassImplements: function(node) {
       makeDefined(node.id);
     },
