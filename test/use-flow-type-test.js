@@ -34,11 +34,19 @@ var NOW_VALID = [
     errors: [A_NOT_USED]
   },
   {
+    code: '(function<T: A>(): T {}); import type A from "a"',
+    errors: [A_NOT_USED]
+  },
+  {
     code: 'import type {A} from "a"; (function<T: A>(): T {})',
     errors: [A_NOT_USED]
   },
   {
-    code: 'import type {a as A} from "a"; (function<T: A>(): T {})',
+    code: '(function<T: A>(): T {}); import type {A} from "a"',
+    errors: [A_NOT_USED]
+  },
+  {
+    code: '(function<T: A>(): T {}); import type {a as A} from "a"',
     errors: [A_NOT_USED]
   },
   {
@@ -46,8 +54,17 @@ var NOW_VALID = [
     errors: [A_NOT_USED]
   },
   {
+    code: 'function x<Y: A>(i: Y) { i }; type A = {}; x()',
+    errors: [A_NOT_USED]
+  },
+  {
     code: 'type A = {}; function x<Y: A.B.C>(i: Y) { i }; x()',
     // QualifiedTypeIdentifier -------^
+    errors: [A_NOT_USED]
+  },
+  {
+    code: 'function x<Y: A.B.C>(i: Y) { i }; type A = {}; x()',
+    //                   ^- QualifiedTypeIdentifier
     errors: [A_NOT_USED]
   }
 ];
