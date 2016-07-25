@@ -14,15 +14,15 @@ var NOW_VALID = [
     errors: [A_NOT_USED]
   },
   {
+    code: 'declare function A(): Y',
+    errors: [A_NOT_USED]
+  },
+  {
     code: 'declare module A {}',
     errors: [A_NOT_USED]
   },
   {
     code: 'declare module A { declare var a: Y }',
-    errors: [A_NOT_USED]
-  },
-  {
-    code: 'declare function A(): Y',
     errors: [A_NOT_USED]
   },
   {

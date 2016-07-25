@@ -13,8 +13,8 @@ module.exports = function(context) {
   }
   return {
     DeclareClass: markTypeAsUsed,
-    DeclareModule: markTypeAsUsed,
     DeclareFunction: markTypeAsUsed,
+    DeclareModule: markTypeAsUsed,
     DeclareVariable: markTypeAsUsed,
     ImportDeclaration: function(node) {
       if (node.importKind === 'type') {
