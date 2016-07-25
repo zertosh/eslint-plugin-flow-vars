@@ -64,10 +64,16 @@ var ALWAYS_INVALID = [
 
 var ALWAYS_VALID = [
   'type A = Y; var x: A; x()',
+  'var x: A; type A = Y; x()',
   'type A = Y; function x(a: A) { a() }; x()',
+  'function x(a: A) { a() }; type A = Y; x()',
   'type A = Y; (x: A)',
+  '(x: A); type A = Y',
   'function x<A>(): A {}; x()',
-  'import type A from "a"; (function(): A {})'
+  'import type A from "a"; (function(): A {})',
+  '(function(): A {}); import type A from "a";',
+  'declare interface A {}',
+  'declare type A = {}'
 ];
 
 new RuleTester({
