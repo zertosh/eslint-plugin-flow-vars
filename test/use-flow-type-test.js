@@ -44,6 +44,11 @@ var NOW_VALID = [
   {
     code: 'type A = {}; function x<Y: A>(i: Y) { i }; x()',
     errors: [A_NOT_USED]
+  },
+  {
+    code: 'type A = {}; function x<Y: A.B.C>(i: Y) { i }; x()',
+    // QualifiedTypeIdentifier -------^
+    errors: [A_NOT_USED]
   }
 ];
 

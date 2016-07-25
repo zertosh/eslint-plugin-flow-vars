@@ -31,7 +31,9 @@ module.exports = function(context) {
       if (node.id.type === 'Identifier') {
         markUsedIfType(node.id);
       } else if (node.id.type === 'QualifiedTypeIdentifier') {
-        markUsedIfType(node.id.qualification);
+        var qid = node.id;
+        do { qid = qid.qualification; } while (qid.qualification);
+        markUsedIfType(qid);
       }
     }
   };
