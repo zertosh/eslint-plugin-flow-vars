@@ -1,3 +1,25 @@
+## THIS PROJECT IS DEPRECATED
+
+The functionality provided by `eslint-plugin-flow-vars` has been merge into [eslint-plugin-flowtype](https://github.com/gajus/eslint-plugin-flowtype).
+
+To migrate, [install](https://github.com/gajus/eslint-plugin-flowtype#installation) `eslint-plugin-flowtype@2.4.0` or higher, and update your eslint config like this:
+
+```diff
+{
+  "parser": "babel-eslint",
+  "plugins": [
+-    "flow-vars"
++    "flowtype"
+  ],
+  "rules": {
+-    "flow-vars/define-flow-type": 1,
+-    "flow-vars/use-flow-type": 1
++    "flowtype/define-flow-type": 1,
++    "flowtype/use-flow-type": 1
+  }
+}
+```
+
 # eslint-plugin-flow-vars
 
 [![Build Status](https://travis-ci.org/zertosh/eslint-plugin-flow-vars.svg?branch=master)](https://travis-ci.org/zertosh/eslint-plugin-flow-vars)
