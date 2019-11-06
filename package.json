@@ -24,6 +24,6 @@
   "dependencies": {},
   "devDependencies": {
     "babel-eslint": "^6.0.2",
-    "eslint": "^2.7.0"
+    "eslint": "^6.6.0"
   }
 }
